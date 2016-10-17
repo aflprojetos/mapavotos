@@ -6,12 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Mapa dos Votos - Câmara Municipal de Campinas</title>
+	<link rel="stylesheet" href="https://npmcdn.com/leaflet@1.0.0-rc.3/dist/leaflet.css" />
+
 <!-- build:css styles/main.css -->
     <link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="../bower_components/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet">
     <link href="../bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <link href="styles/bootstrap-social.css" rel="stylesheet">
-	<link rel="stylesheet" href="https://npmcdn.com/leaflet@1.0.0-rc.3/dist/leaflet.css" />
     <link href="styles/mystyles.css" rel="stylesheet">
 <!-- endbuild -->
 
@@ -34,13 +35,14 @@
             </div>
         </div>
     </nav>
-    <div ng-controller="mapaController">
+    <div ng-controller="MapaController">
         <p> {{message}} </p>
         <ul>
-        <li class="media" ng-repeat="v in votos"> 
+        <li ng-repeat="v in votos"> 
             {{v.local}}
-            </li>
+        </li>
         </ul>
+        <p>{{v.nome}}</p>
     </div>
 	<div id="mapid">
         
@@ -78,8 +80,8 @@
             </div>
         </div>
     </footer>
-<!-- build:js scripts/main.js -->
 	<script src="https://npmcdn.com/leaflet@1.0.0-rc.3/dist/leaflet.js"></script>
+<!-- build:js scripts/main.js -->
     <script src="../bower_components/angular/angular.min.js"></script>
     <script src="scripts/app.js"></script>
     <script src="scripts/app2.js"></script>

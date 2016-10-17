@@ -2,8 +2,8 @@
 
 angular.module('mapavotosApp',[])
 
-    .controller('mapaController', function(){
-        var votos=[
+    .controller('MapaController',[$scope, function($scope){
+        $scope.votos=[
                     {
                         "local":"l331015",
                         "nome":"USF - UNIV. SÃO FRANCISCO",
@@ -25,7 +25,6 @@ angular.module('mapavotosApp',[])
                         "50100":"113"			
 		                }
                  ];
-        this.votos = votos;
-        this.message = "Mapa de Votos de Campinas";
+        $scope.message = "Mapa de Votos de Campinas";
             
-    });
+    }]);
