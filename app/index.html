@@ -18,7 +18,7 @@
 
 
 </head>
-<body onload="inicializa();">
+<body>
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container">
             <div id="navbar" class="navbar-collapse collapse">
@@ -36,16 +36,19 @@
         </div>
     </nav>
     <div ng-controller="MapaController">
-        <p> {{message}} </p>
-        <ul>
-        <li ng-repeat="v in votos"> 
-            {{v.local}}
-        </li>
-        </ul>
-        <p>{{v.nome}}</p>
-    </div>
-	<div id="mapid">
-        
+        <div>
+            <form name="Vereador">
+                <label for="selVereador"> Selecione um veredor: </label>
+                    <select name="selVereador" id="repeatSelect" ng-model="data.model" ng-change="selVereador({{this.value}})">
+                        <option ng-repeat="ver in vereadores" value="{{option.id}}">
+                            {{ver.nome}}
+                        </option>
+                    </select>
+                    <tt>model = {{ver.nome}}</tt><br/>
+            </form>
+        </div>
+        <div id="mapid">
+        </div>    
 	</div>
     <footer class="row-footer">
         <div class="container">
@@ -86,7 +89,6 @@
     <script src="scripts/app.js"></script>
     <script src="scripts/controllers.js"></script>
     <script src="scripts/services.js"></script>
-    <script src="scripts/app2.js"></script>
 <!-- endbuild -->
 </body>
 </html>
