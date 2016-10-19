@@ -37,14 +37,16 @@
     </nav>
     <div ng-controller="MapaController">
         <div>
+            <tt>{{latitude}}</tt>
+            <tt>Vereador selecionado = {{verSelected}}</tt><br/>
             <form name="Vereador">
                 <label for="selVereador"> Selecione um veredor: </label>
-                    <select name="selVereador" id="repeatSelect" ng-model="data.model" ng-change="selVereador({{this.value}})">
-                        <option ng-repeat="ver in vereadores" value="{{option.id}}">
+                    <select name="selVereador" id="repeatSelect" 
+                            ng-model="verSelected" ng-change="selVereador()">
+                        <option ng-repeat="ver in vereadores" value="{{ver.numero}}">
                             {{ver.nome}}
                         </option>
                     </select>
-                    <tt>model = {{ver.nome}}</tt><br/>
             </form>
         </div>
         <div id="mapid">

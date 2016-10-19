@@ -15,17 +15,23 @@ angular.module('mapavotosApp')
         
         $scope.message = "Mapa de Votos de Campinas";
         $scope.votos = mapaFactory.getMapa();
-        
         $scope.vereadores = mapaFactory.getVereadores();
+        // *** vereador que será selecionado.
+        $scope.verSelected = "xxx";
+        $scope.latitude = -22.905556;
         
-        $scope.selVereador = function(numero){
-            var circle = L.circle([-22.85, -47.22], 500, {
+        $scope.selVereador = function(){  
+            $scope.latitude = $scope.latitude + 0.000003;
+            var circle = L.circle([$scope.latitude, -47.060833], 500, {
     		color: 'red',
     		fillColor: '#f03',
     		fillOpacity: 0.5
-			}).addTo(mymap);
-            
-            alert(numero)
-        }
+			}).addTo(mymap);        
+        };
+        
+        $scope.counter = 0;
+        $scope.change = function() {
+            $scope.counter++;
+        };
             
     }]);
