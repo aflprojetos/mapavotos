@@ -42,16 +42,16 @@ angular.module('mapavotosApp')
                 //$scope.raio = eval("$scope.votos["+i.toString()+"].$scope." + $scope.verSelected.toString());
                 
                     
-                $scope.raio = eval("$scope.votos["+i+"]"+".n13001");
-                            
+                $scope.raio = eval("$scope.votos["+i+"]"+".n"+$scope.verSelected);
+                $scope.raio = $scope.raio * 3;
                 console.log($scope.raio);
                 
                 
-                /*circle = L.circle([$scope.latitude, $scope.longitude], $scope.raio, {
+                circle = L.circle([$scope.latitude, $scope.longitude], $scope.raio, {
     		      color: 'red',
     		      fillColor: '#f03',
     		      fillOpacity: 0.5
-			     }).addTo(mymap);*/
+			     }).addTo(mymap);
                 
             }
                 
