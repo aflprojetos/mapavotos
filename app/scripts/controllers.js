@@ -25,6 +25,14 @@ angular.module('mapavotosApp')
         $scope.circle = [];
         $scope.mostraescolas = true;
         
+        $scope.escolaIcon = L.icon({
+                iconUrl: 'images/escola.png',
+                shadowUrl: 'images/escola.png',
+                iconSize:     [5, 4], // size of the icon
+                shadowSize:   [0, 0] // size of the shadow
+                
+            });
+        
         $scope.selVereador = function(){  
             /*$scope.latitude = $scope.latitude + 0.000003;
             var circle = L.circle([$scope.latitude, -47.060833], 500, {
@@ -36,7 +44,7 @@ angular.module('mapavotosApp')
             for(var i=0; i<$scope.votos.length; i++){
                 $scope.latitude = parseFloat($scope.votos[i].latitude);
                 $scope.longitude = parseFloat($scope.votos[i].longitude);
-                $scope.marker[i] = L.marker([$scope.latitude, $scope.longitude]).addTo(mymap);
+                $scope.marker[i] = L.marker([$scope.latitude, $scope.longitude], {icon: $scope.escolaIcon}).addTo(mymap);
                 $scope.marker[i].bindPopup($scope.votos[i].nome).openPopup();
             
                 //$scope.raio = eval("$scope.votos["+i.toString()+"].$scope." + $scope.verSelected.toString());
