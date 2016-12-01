@@ -41,13 +41,13 @@ angular.module('mapavotosApp')
         $scope.mostraescolas = true;
         var i;
         
-        $scope.escolaIcon = L.icon({
+        /*$scope.escolaIcon = L.icon({
                 iconUrl: 'images/escola.png',
                 shadowUrl: 'images/escola.png',
                 iconSize:     [5, 4], // size of the icon
                 shadowSize:   [0, 0] // size of the shadow
                 
-            });
+            });*/
         
 
         $scope.selVereador = function(){  
@@ -61,10 +61,8 @@ angular.module('mapavotosApp')
             for(i=0; i<$scope.votos.length; i++){
                 $scope.latitude = parseFloat($scope.votos[i].latitude);
                 $scope.longitude = parseFloat($scope.votos[i].longitude);
-                $scope.marker[i] = L.marker([$scope.latitude, $scope.longitude], {icon: $scope.escolaIcon}).addTo(mymap);
-                $scope.marker[i].bindPopup($scope.votos[i].nome).openPopup();
-            
-                //$scope.raio = eval("$scope.votos["+i.toString()+"].$scope." + $scope.verSelected.toString());
+                //$scope.marker[i] = L.marker([$scope.latitude, $scope.longitude]).addTo(mymap);
+                //$scope.marker[i].bindPopup($scope.votos[i].nome).openPopup();
                 
                 $scope.raio = eval("$scope.votos["+i+"]"+".n"+$scope.verSelected);
                 $scope.raio = $scope.raio * 3;
@@ -72,8 +70,10 @@ angular.module('mapavotosApp')
                 $scope.circle[i] = L.circle([$scope.latitude, $scope.longitude], $scope.raio, {
     		      color: 'red',
     		      fillColor: '#f03',
-    		      fillOpacity: 0.5
+                  weight: 1,
+    		      fillOpacity: 0.2
 			     }).addTo(mymap);
+                $scope.circle[i].bindPopup($scope.votos[i].nome).openPopup();
                 
             }     
         };
