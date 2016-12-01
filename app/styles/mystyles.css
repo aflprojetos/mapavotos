@@ -90,9 +90,14 @@ body {
   right: 0px;
 }
 
-#mapid {  height: 600px;
+#mapid {  height: 700px;
           border-width: thin;
           border-style: solid;
           border-color: black;
 }
+
+#mapheader{
+    background-color: #7e798c;
+}
+
 
