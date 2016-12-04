@@ -16,6 +16,7 @@ angular.module('mapavotosApp')
 
         //Desenha os limites de Campinas na tela. Ref.:http://leafletjs.com/examples/geojson/
         $scope.coordCamp = mapaFactory.getCoordCamp();
+                
         var myStyle = {
                 "color": "#ff7800",
                 "weight": 1,
@@ -28,9 +29,11 @@ angular.module('mapavotosApp')
         //--------------------------------------------
         
         $scope.message = "Mapa de Votos de Campinas";
-        $scope.coordCamp = mapaFactory.getCoordCamp();
-        $scope.votos = mapaFactory.getMapa();
+        
+        $scope.votos = mapaFactory.getVotos();
+        
         $scope.vereadores = mapaFactory.getVereadores();
+        
         // *** vereador que será selecionado.
         $scope.verSelected = "";
         $scope.latitude = -22.905556;
@@ -48,7 +51,6 @@ angular.module('mapavotosApp')
                 
             });
         
-
         $scope.selVereador = function(){  
             /*$scope.latitude = $scope.latitude + 0.000003;
             var circle = L.circle([$scope.latitude, -47.060833], 500, {
@@ -58,7 +60,7 @@ angular.module('mapavotosApp')
 			}).addTo(mymap);    */
 
             //for($scope.i=0; $scope.i<$scope.votos.length; $scope.i++){
-            for($scope.i=0; $scope.i<$scope.votos.length-1; $scope.i++){
+            for($scope.i=0; $scope.i<$scope.votos.length; $scope.i++){
                 $scope.latitude = parseFloat($scope.votos[$scope.i].latitude);
                 $scope.longitude = parseFloat($scope.votos[$scope.i].longitude);
                 
