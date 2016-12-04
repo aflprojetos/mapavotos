@@ -73,7 +73,7 @@ angular.module('mapavotosApp')
                   weight: 1,
     		      fillOpacity: 0.2
 			     }).addTo(mymap);
-                $scope.circle[$scope.i].bindPopup($scope.votos[$scope.i].nome).openPopup();
+                $scope.circle[$scope.i].bindPopup($scope.votos[$scope.i].nome + " " + $scope.raio+" votos").openPopup();
                 
             }     
         };
